@@ -1,0 +1,12 @@
+com\scheduler\service\TaskRepository$1.class
+com\scheduler\model\Task.class
+com\scheduler\service\LogService.class
+com\scheduler\ui\MainApp.class
+com\scheduler\model\ExecutionLog.class
+com\scheduler\ui\TaskAddController$1.class
+com\scheduler\service\TaskRepository.class
+com\scheduler\ui\TaskAddController.class
+com\scheduler\db\DatabaseConfig.class
+com\scheduler\ui\MainController.class
+com\scheduler\service\SchedulerService.class
+com\scheduler\service\CommandExecutor.class

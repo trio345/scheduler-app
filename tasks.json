@@ -1,0 +1,55 @@
+[ {
+  "name" : "Bismillah kaya raya",
+  "command" : "echo \"bismillah kaya raya\"",
+  "type" : "INTERVAL",
+  "scheduleValue" : "1",
+  "active" : true,
+  "lastRun" : [ 2026, 1, 12, 11, 31, 54, 274883200 ],
+  "status" : "IDLE",
+  "recentLog" : "\"bismillah kaya raya\"\r\n"
+}, {
+  "name" : "scheduler a",
+  "command" : "echo \"halooo\"",
+  "type" : "INTERVAL",
+  "scheduleValue" : "1",
+  "active" : true,
+  "lastRun" : [ 2026, 1, 12, 11, 31, 54, 284812100 ],
+  "status" : "IDLE",
+  "recentLog" : "\"halooo\"\r\n"
+}, {
+  "name" : "test1234",
+  "command" : "echo \"halooo brody\"",
+  "type" : "FIXED_TIME",
+  "scheduleValue" : "10:19",
+  "active" : true,
+  "lastRun" : [ 2026, 1, 12, 10, 19, 3, 832300100 ],
+  "status" : "IDLE",
+  "recentLog" : "\"halooo brody\"\r\n"
+}, {
+  "name" : "Test Tanggal",
+  "command" : "echo \"Hari ini tanggal 12 januari 2026\"",
+  "type" : "SPECIFIC_DATE_TIME",
+  "scheduleValue" : "12-01-2026 11:12",
+  "active" : true,
+  "lastRun" : [ 2026, 1, 12, 11, 21, 3, 359053600 ],
+  "status" : "IDLE",
+  "recentLog" : "\"Hari ini tanggal 12 januari 2026\"\r\n"
+}, {
+  "name" : "Coba Jalanin File",
+  "command" : "C:\\Users\\admin\\Documents\\workspace\\scheduler\\test.bat",
+  "type" : "SPECIFIC_DATE_TIME",
+  "scheduleValue" : "12-01-2026 10:59,12-01-2026 11:29,12-01-2026 11:32",
+  "active" : true,
+  "lastRun" : [ 2026, 1, 12, 11, 32, 7, 444703200 ],
+  "status" : "IDLE",
+  "recentLog" : "===== PING TEST START =====\r\nTime: 12/01/2026 11.32.04,27\r\n\r\nPinging 8.8.8.8 with 32 bytes of data:\r\nReply from 8.8.8.8: bytes=32 time=61ms TTL=113\r\nReply from 8.8.8.8: bytes=32 time=46ms TTL=113\r\nReply from 8.8.8.8: bytes=32 time=92ms TTL=113\r\nReply from 8.8.8.8: bytes=32 time=72ms TTL=113\r\n\r\nPing statistics for 8.8.8.8:\r\n    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),\r\nApproximate round trip times in milli-seconds:\r\n    Minimum = 46ms, Maximum = 92ms, Average = 67ms\r\n===== PING TEST END =====\r\n"
+}, {
+  "name" : "Multi Time Schedule Testttt",
+  "command" : "echo \"Hallo ini dari multiple triggers\"",
+  "type" : "SPECIFIC_DATE_TIME",
+  "scheduleValue" : "12-01-2026 11:25,12-01-2026 11:27",
+  "active" : true,
+  "lastRun" : [ 2026, 1, 12, 11, 27, 4, 306313700 ],
+  "status" : "IDLE",
+  "recentLog" : "\"Hallo ini dari multiple triggers\"\r\n"
+} ]
