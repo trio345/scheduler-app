@@ -18,7 +18,7 @@ public class TaskRepository {
     public TaskRepository() {
         mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        mapper.registerModule(new JavaTimeModule()); // Handle LocalDateTime
+        mapper.registerModule(new JavaTimeModule());
     }
 
     public void saveTasks(List<Task> tasks) {

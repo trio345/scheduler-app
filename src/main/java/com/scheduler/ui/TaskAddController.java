@@ -25,7 +25,6 @@ public class TaskAddController {
             java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy");
             
     public void initialize() {
-        // Bind managed to visible so it doesn't take space when hidden
         specificDateBox.managedProperty().bind(specificDateBox.visibleProperty());
         scheduleValueField.managedProperty().bind(scheduleValueField.visibleProperty());
 
@@ -50,10 +49,8 @@ public class TaskAddController {
         typeCombo.setItems(FXCollections.observableArrayList("INTERVAL", "FIXED_TIME", "SPECIFIC_DATE_TIME"));
         typeCombo.setValue("INTERVAL");
 
-        // Set initial prompt & visibility
         updateInputVisibility("INTERVAL");
 
-        // Listener for dynamic prompt text & visibility
         typeCombo.valueProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal == null) return;
             updateInputVisibility(newVal);
@@ -78,7 +75,6 @@ public class TaskAddController {
             }
         }
         
-        // Resize window to fit new content
         if (dialogStage != null) {
             dialogStage.sizeToScene();
         }
@@ -103,7 +99,7 @@ public class TaskAddController {
                         dateList.getItems().add(d.trim());
                     }
                 } catch (Exception e) {
-                    // ignore parse error on load
+                    e.printStackTrace();
                 }
             } else {
                 scheduleValueField.setText(task.getScheduleValue());
@@ -144,7 +140,6 @@ public class TaskAddController {
         if (datePicker.getValue() != null && timeField.getText() != null && !timeField.getText().isEmpty()) {
             try {
                 String val = DATA_FORMAT.format(datePicker.getValue()) + " " + timeField.getText();
-                // Validate format by parsing it back? simple check
                 if (!dateList.getItems().contains(val)) {
                     dateList.getItems().add(val);
                 }

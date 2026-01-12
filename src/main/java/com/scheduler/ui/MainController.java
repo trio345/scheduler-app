@@ -71,7 +71,6 @@ public class MainController {
         taskTable.setItems(taskList);
         updateSchedulerStatus(false);
         
-        // Context Menu
         ContextMenu contextMenu = new ContextMenu();
         MenuItem editItem = new MenuItem("Edit Task");
         MenuItem toggleItem = new MenuItem("Toggle Enable/Disable");
