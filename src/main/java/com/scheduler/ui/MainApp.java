@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 import java.io.IOException;
 
@@ -19,7 +20,8 @@ public class MainApp extends Application {
         Parent root = loader.load();
         
         Scene scene = new Scene(root, 800, 600);
-        stage.setTitle("Scheduler App");
+        stage.setTitle("Aplicx Scheduler");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/logo/aplic-logo.png")));
         stage.setScene(scene);
         stage.show();
     }

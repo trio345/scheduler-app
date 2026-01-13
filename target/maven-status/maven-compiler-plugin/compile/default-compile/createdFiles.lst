@@ -4,6 +4,7 @@ com\scheduler\service\LogService.class
 com\scheduler\ui\MainApp.class
 com\scheduler\model\ExecutionLog.class
 com\scheduler\ui\TaskAddController$1.class
+module-info.class
 com\scheduler\service\TaskRepository.class
 com\scheduler\ui\TaskAddController.class
 com\scheduler\db\DatabaseConfig.class

@@ -71,7 +71,6 @@ public class Task {
          if (val == null || val.isEmpty()) {
              return new java.util.ArrayList<>();
          }
-         // Handle potential whitespace around commas if manually edited in string mode (though json handles it)
          return java.util.Arrays.stream(val.split(","))
                  .map(String::trim)
                  .collect(java.util.stream.Collectors.toList());

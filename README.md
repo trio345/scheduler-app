@@ -1,6 +1,6 @@
 # MySQL Task Scheduler (JavaFX)
 
-A desktop application to schedule shell commands and log their execution to MySQL.
+A desktop application named Aplicx Scheduler to schedule shell commands and log their execution to MySQL.
 
 ## Prerequisites
 1.  **Java JDK 17+** installed.
@@ -13,7 +13,6 @@ A desktop application to schedule shell commands and log their execution to MySQ
     ```sql
     CREATE DATABASE scheduler_db;
     USE scheduler_db;
-    -- Run content of schema.sql
     ```
 
 ## Configuration

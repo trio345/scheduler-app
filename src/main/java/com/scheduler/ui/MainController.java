@@ -2,6 +2,8 @@ package com.scheduler.ui;
 
 import com.scheduler.model.Task;
 import com.scheduler.service.SchedulerService;
+
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -47,7 +49,7 @@ public class MainController {
             recentStatusArea.appendText(message);
         });
 
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
         scheduleCol.setCellValueFactory(cellData -> {
             Task t = cellData.getValue();
             String displayValue = t.getScheduleValue();
@@ -57,7 +59,7 @@ public class MainController {
             return new javafx.beans.property.SimpleStringProperty(
                     t.getType() + ": " + displayValue);
         });
-        statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
+        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
         
         lastRunCol.setCellValueFactory(cellData -> 
             javafx.beans.binding.Bindings.createStringBinding(() -> {

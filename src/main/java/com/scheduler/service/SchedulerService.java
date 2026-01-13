@@ -92,12 +92,6 @@ public class SchedulerService {
                     LocalTime targetTime = LocalTime.parse(task.getScheduleValue());
                     LocalDateTime scheduledDateTime = LocalDateTime.of(now.toLocalDate(), targetTime);
 
-                    // if (now.getHour() == targetTime.getHour() && now.getMinute() == targetTime.getMinute()) {
-                    //     if (task.getLastRun() == null || task.getLastRun().toLocalDate().isBefore(now.toLocalDate())) {
-                    //         shouldRun = true;
-                    //     }
-                    // }
-
                     if (now.isAfter(scheduledDateTime)) {
                         if (task.getLastRun() == null || task.getLastRun().isBefore(scheduledDateTime)) {
                             shouldRun = true;

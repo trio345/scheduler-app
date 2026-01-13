@@ -42,6 +42,11 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>2.15.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>17.0.8</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -63,6 +68,34 @@
                     <mainClass>com.scheduler.ui.MainApp</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.7.1</version>
+
+                <executions>
+                    <execution>
+                    <id>create-app-image</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>jpackage</goal>
+                    </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <name>AplicxScheduler</name>
+                    <appVersion>1.0.0</appVersion>
+                    <imageType>app-image</imageType>
+                    <destination>${project.build.directory}/jpackage</destination>
+                    <input>${project.build.directory}</input>
+                    <mainJar>desktop-scheduler-1.0-SNAPSHOT.jar</mainJar>
+                    <mainClass>com.scheduler.ui.MainApp</mainClass>
+                    <icon>src/main/resources/logo/aplic-logo.ico</icon>
+                    <winConsole>true</winConsole>
+                </configuration>
+                </plugin>
+
         </plugins>
     </build>
 </project>
