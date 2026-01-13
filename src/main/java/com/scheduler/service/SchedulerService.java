@@ -66,7 +66,7 @@ public class SchedulerService {
 
     private void checkTasks() {
         LocalDateTime now = LocalDateTime.now();
-        System.out.println("Scheduler listening : " + now);
+        System.out.println("Scheduler tick at : " + now);
 
         for (Task task : tasks) {
             if (!task.isActive()) {
@@ -88,42 +88,45 @@ public class SchedulerService {
                         }
                     }
                 } else if ("FIXED_TIME".equals(task.getType())) {
-                    // Format time periode HH:mm
+                    // Format time HH:mm
                     LocalTime targetTime = LocalTime.parse(task.getScheduleValue());
-                    if (now.getHour() == targetTime.getHour() && now.getMinute() == targetTime.getMinute()) {
-                        if (task.getLastRun() == null || task.getLastRun().toLocalDate().isBefore(now.toLocalDate())) {
+                    LocalDateTime scheduledDateTime = LocalDateTime.of(now.toLocalDate(), targetTime);
+
+                    // if (now.getHour() == targetTime.getHour() && now.getMinute() == targetTime.getMinute()) {
+                    //     if (task.getLastRun() == null || task.getLastRun().toLocalDate().isBefore(now.toLocalDate())) {
+                    //         shouldRun = true;
+                    //     }
+                    // }
+
+                    if (now.isAfter(scheduledDateTime)) {
+                        if (task.getLastRun() == null || task.getLastRun().isBefore(scheduledDateTime)) {
                             shouldRun = true;
                         }
                     }
                 } else if ("SPECIFIC_DATE_TIME".equals(task.getType())) {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-                    String[] triggers = task.getScheduleValue().split(",");
+                    List<String> triggers = task.getScheduleList();
                     
                     for (String trigger : triggers) {
                         try {
-                            LocalDateTime targetDateTime = LocalDateTime.parse(trigger.trim(), formatter);
+                            LocalDateTime targetDateTime = LocalDateTime.parse(trigger, formatter);
                             
-                            // Check if this specific trigger is due
                             if (now.isAfter(targetDateTime) || now.isEqual(targetDateTime)) {
-                                // If lastRun is null, we haven't run ever.
-                                // If lastRun is present, we only run if lastRun is BEFORE this target time.
-                                // This means we haven't executed FOR THIS trigger yet.
                                 if (task.getLastRun() == null || task.getLastRun().isBefore(targetDateTime)) {
                                     shouldRun = true;
-                                    break; // Run once, then lastRun update will cover this (and potentially older missed ones)
+                                    break;
                                 }
                             }
                         } catch (Exception e) {
-                            System.err.println("Error parsing trigger " + trigger + ": " + e.getMessage());
+                            System.err.println("Error parsing " + trigger + ": " + e.getMessage());
                         }
                     }
                 }
             } catch (Exception e) {
-                System.err.println("Error parsing schedule for task " + task.getName() + ": " + e.getMessage());
+                System.err.println("Error parsing " + task.getName() + ": " + e.getMessage());
             }
 
             if (shouldRun) {
-                // Execute in background
                 new Thread(() -> {
                     updateTaskStatus(task, "RUNNING");
                     com.scheduler.model.ExecutionLog log = executor.execute(task);

@@ -110,7 +110,7 @@ public class MainController {
                     e.printStackTrace();
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
-                    alert.setHeaderText("Could not load Update Task dialog");
+                    alert.setHeaderText("Failed to load Update Task dialog");
                     alert.setContentText(e.getMessage());
                     alert.showAndWait();
                 }
@@ -136,7 +136,7 @@ public class MainController {
             if (selected != null) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Delete Task");
-                alert.setContentText("Are you sure you want to delete " + selected.getName() + "?");
+                alert.setContentText("Are you sure want to delete " + selected.getName() + "?");
                 if (alert.showAndWait().get() == ButtonType.OK) {
                    schedulerService.removeTask(selected);
                    taskList.remove(selected);
@@ -169,7 +169,7 @@ public class MainController {
             Task newTask = controller.getTask();
             if (newTask != null) {
                 schedulerService.addTask(newTask);
-                taskList.add(newTask); // Update UI list
+                taskList.add(newTask);
             }
 
         } catch (IOException e) {

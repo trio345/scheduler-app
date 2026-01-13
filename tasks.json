@@ -1,55 +1,51 @@
 [ {
-  "name" : "Bismillah kaya raya",
-  "command" : "echo \"bismillah kaya raya\"",
-  "type" : "INTERVAL",
-  "scheduleValue" : "1",
-  "active" : true,
-  "lastRun" : [ 2026, 1, 12, 11, 31, 54, 274883200 ],
-  "status" : "IDLE",
-  "recentLog" : "\"bismillah kaya raya\"\r\n"
-}, {
-  "name" : "scheduler a",
-  "command" : "echo \"halooo\"",
-  "type" : "INTERVAL",
-  "scheduleValue" : "1",
-  "active" : true,
-  "lastRun" : [ 2026, 1, 12, 11, 31, 54, 284812100 ],
-  "status" : "IDLE",
-  "recentLog" : "\"halooo\"\r\n"
-}, {
-  "name" : "test1234",
-  "command" : "echo \"halooo brody\"",
+  "name" : "Check Status Employee",
+  "command" : "cd /d {{ Root Project }} && php spark check-status:run",
   "type" : "FIXED_TIME",
-  "scheduleValue" : "10:19",
-  "active" : true,
-  "lastRun" : [ 2026, 1, 12, 10, 19, 3, 832300100 ],
-  "status" : "IDLE",
-  "recentLog" : "\"halooo brody\"\r\n"
+  "active" : false,
+  "lastRun" : null,
+  "status" : "INACTIVE",
+  "recentLog" : "",
+  "scheduleList" : [ "07:00" ],
+  "scheduleValue" : "07:00"
 }, {
-  "name" : "Test Tanggal",
-  "command" : "echo \"Hari ini tanggal 12 januari 2026\"",
+  "name" : "Reset Medical",
+  "command" : "cd /d {{ Root Project }} && php spark reset-medical:run",
   "type" : "SPECIFIC_DATE_TIME",
-  "scheduleValue" : "12-01-2026 11:12",
-  "active" : true,
-  "lastRun" : [ 2026, 1, 12, 11, 21, 3, 359053600 ],
-  "status" : "IDLE",
-  "recentLog" : "\"Hari ini tanggal 12 januari 2026\"\r\n"
+  "active" : false,
+  "lastRun" : null,
+  "status" : "INACTIVE",
+  "recentLog" : "",
+  "scheduleList" : [ "01-01-2026 01:00", "01-01-2027 01:00", "01-01-2028 01:00", "01-01-2029 01:00", "01-01-2030 01:00", "01-01-2031 01:00", "01-01-2032 01:00", "01-01-2033 01:00", "01-01-2034 01:00", "01-01-2035 01:00" ],
+  "scheduleValue" : [ "01-01-2026 01:00", "01-01-2027 01:00", "01-01-2028 01:00", "01-01-2029 01:00", "01-01-2030 01:00", "01-01-2031 01:00", "01-01-2032 01:00", "01-01-2033 01:00", "01-01-2034 01:00", "01-01-2035 01:00" ]
 }, {
-  "name" : "Coba Jalanin File",
-  "command" : "C:\\Users\\admin\\Documents\\workspace\\scheduler\\test.bat",
-  "type" : "SPECIFIC_DATE_TIME",
-  "scheduleValue" : "12-01-2026 10:59,12-01-2026 11:29,12-01-2026 11:32",
-  "active" : true,
-  "lastRun" : [ 2026, 1, 12, 11, 32, 7, 444703200 ],
-  "status" : "IDLE",
-  "recentLog" : "===== PING TEST START =====\r\nTime: 12/01/2026 11.32.04,27\r\n\r\nPinging 8.8.8.8 with 32 bytes of data:\r\nReply from 8.8.8.8: bytes=32 time=61ms TTL=113\r\nReply from 8.8.8.8: bytes=32 time=46ms TTL=113\r\nReply from 8.8.8.8: bytes=32 time=92ms TTL=113\r\nReply from 8.8.8.8: bytes=32 time=72ms TTL=113\r\n\r\nPing statistics for 8.8.8.8:\r\n    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),\r\nApproximate round trip times in milli-seconds:\r\n    Minimum = 46ms, Maximum = 92ms, Average = 67ms\r\n===== PING TEST END =====\r\n"
+  "name" : "Join Holiday Check",
+  "command" : "cd /d {{ Root Project }} && php spark join-holiday:run",
+  "type" : "FIXED_TIME",
+  "active" : false,
+  "lastRun" : null,
+  "status" : "INACTIVE",
+  "recentLog" : "",
+  "scheduleList" : [ "08:00" ],
+  "scheduleValue" : "08:00"
 }, {
-  "name" : "Multi Time Schedule Testttt",
-  "command" : "echo \"Hallo ini dari multiple triggers\"",
+  "name" : "Annual Reset Leave Balance",
+  "command" : "cd /d {{ Root Project }} && php spark annual-reset:run",
   "type" : "SPECIFIC_DATE_TIME",
-  "scheduleValue" : "12-01-2026 11:25,12-01-2026 11:27",
-  "active" : true,
-  "lastRun" : [ 2026, 1, 12, 11, 27, 4, 306313700 ],
-  "status" : "IDLE",
-  "recentLog" : "\"Hallo ini dari multiple triggers\"\r\n"
+  "active" : false,
+  "lastRun" : null,
+  "status" : "INACTIVE",
+  "recentLog" : "",
+  "scheduleList" : [ "01-01-2026 02:00", "01-01-2027 02:00", "01-01-2028 02:00", "01-01-2029 02:00", "01-01-2030 02:00", "01-01-2031 02:00", "01-01-2032 02:00", "01-01-2033 02:00", "01-01-2034 02:00", "01-01-2035 02:00" ],
+  "scheduleValue" : [ "01-01-2026 02:00", "01-01-2027 02:00", "01-01-2028 02:00", "01-01-2029 02:00", "01-01-2030 02:00", "01-01-2031 02:00", "01-01-2032 02:00", "01-01-2033 02:00", "01-01-2034 02:00", "01-01-2035 02:00" ]
+}, {
+  "name" : "Monthly Leave Balance",
+  "command" : "cd /d {{ Root Project }} && php spark monthly-leave:run",
+  "type" : "SPECIFIC_DATE_TIME",
+  "active" : false,
+  "lastRun" : null,
+  "status" : "INACTIVE",
+  "recentLog" : "",
+  "scheduleList" : [ "03-01-2026 03:00", "03-02-2026 03:00", "03-03-2026 03:00", "03-04-2026 03:00", "03-05-2026 03:00", "03-06-2026 03:00", "03-07-2026 03:00", "03-08-2026 03:00", "03-09-2026 03:00", "03-10-2026 03:00", "03-11-2026 03:00", "03-12-2026 03:00", "03-01-2027 03:00", "03-02-2027 03:00", "03-03-2027 03:00", "03-04-2027 03:00", "03-05-2027 03:00", "03-06-2027 03:00", "03-07-2027 03:00", "03-08-2027 03:00", "03-09-2027 03:00", "03-10-2027 03:00", "03-11-2027 03:00", "03-12-2027 03:00", "03-01-2028 03:00", "03-02-2028 03:00", "03-03-2028 03:00", "03-04-2028 03:00", "03-05-2028 03:00", "03-06-2028 03:00", "03-07-2028 03:00", "03-08-2028 03:00", "03-09-2028 03:00", "03-10-2028 03:00", "03-11-2028 03:00", "03-12-2028 03:00" ],
+  "scheduleValue" : [ "03-01-2026 03:00", "03-02-2026 03:00", "03-03-2026 03:00", "03-04-2026 03:00", "03-05-2026 03:00", "03-06-2026 03:00", "03-07-2026 03:00", "03-08-2026 03:00", "03-09-2026 03:00", "03-10-2026 03:00", "03-11-2026 03:00", "03-12-2026 03:00", "03-01-2027 03:00", "03-02-2027 03:00", "03-03-2027 03:00", "03-04-2027 03:00", "03-05-2027 03:00", "03-06-2027 03:00", "03-07-2027 03:00", "03-08-2027 03:00", "03-09-2027 03:00", "03-10-2027 03:00", "03-11-2027 03:00", "03-12-2027 03:00", "03-01-2028 03:00", "03-02-2028 03:00", "03-03-2028 03:00", "03-04-2028 03:00", "03-05-2028 03:00", "03-06-2028 03:00", "03-07-2028 03:00", "03-08-2028 03:00", "03-09-2028 03:00", "03-10-2028 03:00", "03-11-2028 03:00", "03-12-2028 03:00" ]
 } ]

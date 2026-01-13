@@ -34,9 +34,48 @@ public class Task {
     public StringProperty typeProperty() { return type; }
     public void setType(String type) { this.type.set(type); }
 
+    @JsonIgnore
     public String getScheduleValue() { return scheduleValue.get(); }
     public StringProperty scheduleValueProperty() { return scheduleValue; }
+    @JsonIgnore
     public void setScheduleValue(String scheduleValue) { this.scheduleValue.set(scheduleValue); }
+
+    @com.fasterxml.jackson.annotation.JsonProperty("scheduleValue")
+    public Object getScheduleValueJson() {
+        if ("SPECIFIC_DATE_TIME".equals(getType())) {
+            String val = getScheduleValue();
+            if (val == null || val.isEmpty()) {
+                return new java.util.ArrayList<>();
+            }
+            return java.util.Arrays.asList(val.split(","));
+        }
+        return getScheduleValue();
+    }
+
+    @com.fasterxml.jackson.annotation.JsonProperty("scheduleValue")
+    public void setScheduleValueJson(Object value) {
+        if (value instanceof java.util.List) {
+            java.util.List<?> list = (java.util.List<?>) value;
+            java.util.List<String> validList = new java.util.ArrayList<>();
+            for (Object obj : list) {
+                if (obj != null) validList.add(obj.toString().trim());
+            }
+            setScheduleValue(String.join(",", validList));
+        } else {
+            setScheduleValue(value != null ? value.toString() : "");
+        }
+    }
+
+    public java.util.List<String> getScheduleList() {
+         String val = getScheduleValue();
+         if (val == null || val.isEmpty()) {
+             return new java.util.ArrayList<>();
+         }
+         // Handle potential whitespace around commas if manually edited in string mode (though json handles it)
+         return java.util.Arrays.stream(val.split(","))
+                 .map(String::trim)
+                 .collect(java.util.stream.Collectors.toList());
+    }
 
     public boolean isActive() { return active.get(); }
     public BooleanProperty activeProperty() { return active; }
